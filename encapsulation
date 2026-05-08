@@ -1,0 +1,304 @@
+// basic class example
+
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+class Fruits {
+    private :
+          string name;
+          int num;
+    
+    public :
+        void setData ( string a, int n ) {
+            name = a;
+            num =  n;
+        }
+
+        void Display() {
+
+            cout << "WE HAVE " << num << " NUMBERS OF " << name << endl ;
+    
+        }
+};
+
+int main() {
+   
+    Fruits f1,f2;
+    f1.setData ( "lychee", 23);
+    f2. setData ( "pomelo", 35);
+
+    f1.Display();
+    f2.Display();
+}
+
+// que 1 mobile 
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Mobile {
+
+    private:
+        string brand;
+        int price;
+
+    public:
+        void setData ( string b, int p) {
+            brand = b;
+            price = p;
+        }
+
+        void Display() {
+            
+            cout << "BRAND : " << brand << " PRICE : " << price << endl;
+        }
+};
+
+int main() {
+
+    Mobile m1;
+    m1.setData ("Samsung", 15000);
+    m1.Display();
+    return 0;
+}
+
+// que 2 calculator
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Calculator {
+
+    private:
+        double num1;
+        double num2;
+
+    public:
+         void setData( double n1, double n2) {
+
+            num1 = n1;
+            num2 = n2;
+
+         }
+
+        double Add() {
+
+                return num1 + num2;
+            
+        }
+
+        double Multiply() {
+
+                return num1 * num2;
+
+        }
+
+        void Display() {
+            cout << "THE SUM OF GIVEN NUMBERS :" << Add() << endl;
+            cout << "THE MULTIPLICATION OF GIVEN NUMBERS :" << Multiply() << endl;
+
+        }
+};
+
+int main() {
+
+     Calculator c1;
+     c1.setData(15.5, 5.5);
+     c1.Display();
+     return 0;
+}
+
+// que 3 student 
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Student {
+
+    private:
+         string name;
+         int marks[3];
+     
+    public :
+        void setData( string n, int m1, int m2, int m3) {
+                name = n;
+                marks[0] = m1;
+                marks[1] = m2;
+                marks[2] = m3;
+        }
+
+        int getTotal() {
+            return marks[0] + marks[1] + marks[2];
+        }
+
+        float getPercentage() {
+           return ((getTotal()/300.0)*100);
+        }
+
+        void Display(){
+            cout << "Name : " << name << endl;
+            cout << "Total Marks : " << getTotal() << endl;
+            cout << "Percentage : " << getPercentage() << "%" << endl;
+        }
+};
+
+int main () {
+    Student s1,s2;
+    s1.setData("shreya", 89, 90,100);
+    s2.setData("ritika", 98, 98, 87);
+    cout << "--- STUDENT 1 ---" << endl;
+    s1.Display();
+    cout << "--- STUDENT 2 ---" << endl;
+    s2.Display();
+    return 0;
+}
+
+// que 4  book discount apply 10% off
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Book {
+
+    private:
+        string title;
+        string author;
+        double price;
+
+    public:
+        void setBook( string t, string a, double p) {
+            title = t;
+            author = a;
+            price = p;
+        }
+
+        double applyDiscount( double percent ) {
+            price = price - ((percent)/100 * price );
+        }
+
+        double getPrice(){
+            return price;
+        }
+
+        void Display(){
+            cout << "\"" << title << "\" by " << author << " - $" << price << endl;
+        }
+};
+
+int main () {
+    Book b[3];
+    b[0].setBook("C++ Basics", "John Smith", 45.99);
+    b[1].setBook("Python Programming", "Jane Doe", 39.99);
+    b[2].setBook("Data Structures", "Bob Johnson", 59.99);
+    cout << " --- BEFORE DISCOUNT --- " << endl;
+    for ( int i = 0; i < 3; i++) {
+        b[i].Display();
+    } 
+    cout << " --- AFTER DISCOUNT --- " << endl;
+    for ( int i = 0; i < 3; i++) {
+        b[i].applyDiscount(10);
+    }
+    for ( int i = 0; i < 3; i++) {
+        b[i].Display();
+    }
+    return 0;
+}
+
+// que 5 employee with bonus
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Employee {
+
+    private:
+       string name;
+       int id;
+       double sal;
+    
+    public:
+       void setEmployee( string n, int i, double s) {
+            name = n;
+            id = i ;
+            sal = s;
+       }
+
+       void giveBonus( double bonus) {
+            sal = sal + ( sal * (bonus/100));
+       }
+
+        double getSalary() {
+            return sal;
+        }
+
+        void Display() {
+            cout << "Employee: " << name << "(ID: " << id << ") - Salary: $" << sal << endl; 
+        }
+};
+
+int main() {
+    Employee e[4];
+    e[0].setEmployee("shreya ", 101, 25000.0);
+    e[1].setEmployee("ritika ", 102, 26000.0);
+    e[2].setEmployee("golu ", 103, 24500.0);
+    e[3].setEmployee("sonu ", 104, 20000.0);
+    cout << " --- EMPLOYEE LIST --- " << endl;
+    for ( int i = 0; i < 4 ; i++) {
+        e[i].Display();
+    }
+
+    double bonus;
+    cout << "Enter bonus percent for all:  ";
+    cin >> bonus;
+    for ( int i = 0; i < 4; i++) {
+        e[i].giveBonus(bonus);
+    }
+    cout << " --- AFTER BONUS --- " << endl;
+    for ( int i = 0; i < 4; i++ ){
+        e[i].Display();
+    }
+    return 0;
+}
+
+// CONSTRUCTOR DESTRUCTOR
+
+// basic constructor ( this will hardcode the given cout---- so if we want to overcome this we use parameterized constructor)
+// default constructor is used when we either want an object to just exist or have default values
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Animal {
+    
+    private:
+        string name;
+        string sound;
+
+    public:
+        Animal() {
+            name = "dog";
+            sound = "woof";
+            cout << name << " makes " << sound <<" sound" << endl;
+        }     
+};
+
+int main( ) {
+    Animal a;
+    return 0;
+}
+
+//
